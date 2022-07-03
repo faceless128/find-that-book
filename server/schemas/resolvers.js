@@ -33,16 +33,6 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        const userData = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { password: args.password } },
-          { new: true }
-      )};
-      const token = signToken(user);
-      return { token, user };
-    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -58,6 +48,28 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    saveBook: async (parent, { body }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedBooks: body } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError('Not logged in!');
+    },
+    removeBook: async (parent, { bookId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedBooks: { bookId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError('Not logged in');
+    }
   }
 };
 
