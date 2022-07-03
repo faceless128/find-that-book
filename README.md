@@ -25,7 +25,7 @@ GraphQL
 Clone the repository and install any dependencies with NPM. Modify to your liking and deploy on Heroku.
 
 ## Usage
-FInd Books.
+Find Books.
 
 ## Demonstration
 Here is a [Live Demonstration](https://faceless-find-that-book.herokuapp.com)
