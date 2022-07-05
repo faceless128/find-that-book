@@ -31,5 +31,8 @@ Login.
 Save Books.
 Delete Books.
 
+## Screenshot
+![Find That Book](./screenshot.png)
+
 ## Demonstration
 Here is a [Live Demonstration](https://faceless-find-that-book.herokuapp.com)
