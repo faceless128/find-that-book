@@ -8,6 +8,7 @@ A Book Search application using the MERN stack.
 * [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Screenshot](#screenshot)
 * [Demonstration](#demonstration)
 
 ## Features
